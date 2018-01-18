@@ -1,0 +1,47 @@
+%!TEX root = virtual-clusters.tex
+
+\subsection{Terminology}\label{S:terminology}
+
+As the concept of using standard HPC infrastructure to manage virtual
+clusters is new and introduces abstractions that may not be available
+by standard virtualization frameworks such as OpenStack, AWS, and
+Azure, we provide the necessary terminology that we will use
+throughout this paper. The biggest difference we have is in the
+introduction of computesets. The definitions include:
+
+\begin{description}
+
+\item[Node:] The term node is used to refer to individual computers in a virtual
+cluster. The term node is synonymous with Virtual Machine (VM).
+
+\item[Compute:] A node with substantial computational resources used to perform
+work in a virtual cluster. Compute Nodes (CN) are started and stopped on request
+by the cluster administrator.
+
+\item[Frontend:] A node with limited computational resources used to manage a
+virtual cluster. Frontend Nodes (FN) typically remain running 24 hours a day
+and can be started and stopped on request by the cluster administrator
+
+\item[Virtual cluster:] A virtual cluster (VC) is a loosely or tightly connected
+network of FN and CNs managed together by a virtual cluster administrator.
+
+\item[Computeset:] A group of CNs started together and being in some state
+(submitted, started, finished, failed). Each CN can only belong to 1 {\em
+computeset\/} in submitted or active state. Compute sets can be merged
+to build a larger virtual cluster on demand.
+
+\item[Image:] A file containing the contents and structure (ISO9660) of a disk
+volume which can be attached as a cdrom to a node.
+
+\item[Image attach:] Attach is an action applied to a node and image pair
+whereby the contents of the image are made available to a node on the next power
+on.
+
+\item[Image detach:] Detach is an action applied to a node and image pair
+whereby the contents of the image are made unavailable to the node on the next
+power on.
+
+\item[Console:] An interactive representation of the screen of a node (text or
+graphical) provided to assist with node installation and management.
+
+\end{description}

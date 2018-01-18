@@ -1,0 +1,97 @@
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
+\newcommand{\GET}{GET}
+\newcommand{\DELETE}{DELETE}
+\newcommand{\PUT}{PUT}
+\newcommand{\POST}{POST}
+\newcommand{\PATCH}{PATCH}
+
+
+\begin{table*}[!h]
+\caption{REST interface of the {\em Comet\/} virtual cluster service.}\label{T:rest}
+\smallskip
+
+\begin{small}
+\begin{tabular}{|llp{6.5cm}|}
+\hline
+	& REST URL & Description \\
+\hline
+\GET	  & /v1/cluster/								     & gets the list of all clusters \\
+\hline
+\GET 	  & /v1/cluster/\{cluster.name\} 						     & Obtain details about the named cluster \\
+\hline
+\DELETE   & /v1/cluster/\{cluster.name\} 						     & Destroy the named cluster \\
+\hline
+\GET 	  & /v1/cluster/\{cluster.name\}/compute/\{compute.name\}		     & Obtain the details of a named compute resource  in a named cluster \\
+\hline
+\DELETE   & /v1/cluster/\{cluster.name\}/compute/\{compute.name\} 	      	     & Destroy the named compute resource in a  named cluster \\
+\hline
+\PUT 	  & /v1/cluster/\{cluster.name\}/compute/\{compute.name\}/attach        & iso Attach an ISO to the named compute resource in a named cluster   \\
+\hline
+\PUT 	  & /v1/cluster/\{cluster.name\}/compute/\{compute.name\}/poweroff      & Power off the named compute resource  in a named cluster \\
+\hline
+\PUT 	  & /v1/cluster/\{cluster.name\}/compute/\{compute.name\}/poweron 	     & Power on the named compute resource  in a named cluster \\
+\hline
+\PUT 	  & /v1/cluster/\{cluster.name\}/compute/\{compute.name\}/reboot 	     & Reboot the named compute resource in a  named cluster \\
+\hline
+\POST 	  & /v1/cluster/\{cluster.name\}/compute/\{compute.name\}/rename 	     & Rename the named compute resource  in a named cluster \\
+\hline
+\PUT 	  & /v1/cluster/\{cluster.name\}/compute/\{compute.name\}/reset 	     & Reset the named compute resource in a  named cluster \\
+\hline
+\PUT 	  & /v1/cluster/\{cluster.name\}/compute/\{compute.name\}/shutdown      & Shutdown the named compute resource in a named cluster  \\
+\hline
+\GET 	  & /v1/cluster/\{cluster.name\}/frontend/ 	     			     & Obtain the details of a frontend resource in a named cluster  \\
+\hline
+\PUT 	  & /v1/cluster/\{cluster.name\}/frontend/attach iso 			     & Attach an ISO to the frontendresource in a named cluster  \\
+\hline
+\PUT 	  & /v1/cluster/\{cluster.name\}/frontend/poweroff 		             & Power off the frontend of a named cluster  \\
+\hline
+\PUT 	  & /v1/cluster/\{cluster.name\}/frontend/poweron 			     & Power on the frontend of a named cluster  \\
+\hline
+\PUT 	  & /v1/cluster/\{cluster.name\}/frontend/reboot 			     & Reboot the frontend of a named cluster  \\
+\hline
+\PUT 	  & /v1/cluster/\{cluster.name\}/frontend/reset			     & Reset the frontend of a named cluster  \\
+\hline
+\PUT	  & /v1/cluster/\{cluster.name\}/frontend/shutdown 			     & Shutdown the frontend of a named cluster  \\
+\hline
+\GET 	  & /v1/cluster/\{cluster.name\}/compute/\{compute.name\}/console/  & Open VNC console to named  compute resource \\
+\hline
+\GET 	  & /v1/cluster/\{cluster.name\}/frontend/console/    	      		     & Open VNC console to name frontend resource  \\
+\hline
+\POST 	  & /v1/computeset/	  	  						     & Power on a set of computes creating a ComputeSet \\
+\hline
+\GET 	  & /v1/computeset/  								     & list the compute set \\
+\hline
+\GET 	   & /v1/computeset/\{computeset.id\} 						     & Obtain the details of the identified ComputeSet  \\
+\hline
+\PUT 	   & /v1/computeset/\{computeset.id\}/poweroff 					     & Power off the identified ComputeSet  \\
+\hline
+\PUT 	   & /v1/computeset/\{computeset.id\}/reboot					     & Reboot the nodes in the identified ComputeSet  \\
+\hline
+\PUT 	   & /v1/computeset/\{computeset.id\}/reset					     & Reset the nodes in the identified ComputeSet  \\
+\hline
+\PUT 	   & /v1/computeset/\{computeset.id\}/shutdown 					     & Shutdown the nodes in the identified ComputeSet  \\
+\hline
+\GET 	   & /v1/user 									     & Returns Users details in JSON format  \\
+\hline
+\PUT 	   & /v1/user 									     & Returns Users details in JSON format  \\
+\hline
+\PATCH 	   & /v1/user 									     & Returns Users details in JSON format  \\
+\hline
+\GET 	   & /v1/project 								     & Returns project details  \\
+\hline
+\GET 	   & /v1/image 								     & Gets the list of images  \\
+\hline
+\POST 	   & /v1/image 									     & Adds and image  \\
+\hline
+\end{tabular}
+\end{small}
+
+
+\end{table*}

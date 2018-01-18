@@ -1,0 +1,64 @@
+\section{Introduction} \label{S:introduction}
+
+The national cyberinfrastructure trends supported
+by the National Science Foundation includes two important classes. The
+first is the tradition support of large scale parallel computing needs
+by sophisticated scientific applications and tightly coupled
+high-performance computing clusters and supercomputers. The other is
+the emerging long tail of computational science, driven by new
+scientific domains (e.g., bioinformatics, computational sociology,
+etc.) adopting the computer as a key tool for research and with
+rapidly changing software environments and workflows suited to loosely
+coupled systems, referred to as the ``long tail of
+science'' \cite{comet14}. How to support these two classes of research
+in an efficient manner is a challenge being faced at all scales:
+departmental; campus; and nationally.
+
+One approach to tackle this is to provide complete separate
+machines and environments in support of both. However it is a valid
+research question to ask whether the requirements for both classes could be provided by a joint
+operational and hardware infrastructure. This is where \emph{Comet} \cite{comet14}
+benefits the overall community by integrating some of
+the requirements from both and providing a prototype which
+combines these approaches. \emph{Comet's} goal is to primarily target
+the long tail of science but its operation and use could be a model
+for possible future systems.
+
+In contrast to other systems providing virtualization capabilities,
+\emph{Comet} does not deploy an IaaS framework such as OpenStack
+\cite{openstack}. Instead, it is operated as a standard Linux cluster,
+using a well known cluster management framework (Rocks
+\cite{www-rocks}) and scheduler (Slurm \cite{slurm}) and integrates
+virtualization concepts into them. As a result \emph{Comet}
+uses the batch system to schedule, start, stop and manage VMs. This
+obviously is of great advantage as on the same machine can provide a
+traditional batch computing environment for established HPC users
+while leveraging the benefits of a queuing system to dynamically
+allocate physical resources for VMs. Moreover, the VMs have access to
+the InfiniBand network using SR-IOV
+\cite{sriov} and can perform RDMA operation between define groups of
+VMs. This makes \emph{Comet} ideally targeted towards
+hosting virtual clusters instead of just loosely coupled VMs.
+
+We have ensured that the management of the virtual clusters (VC) allows
+the use of common cluster tools such as Rocks, xCAT
+\cite{www-xcat}, or Warewulf \cite{www-warewolf} using semantics based
+off the experience of operating bare metal. This helps existing
+cluster administrators quickly build and manage their VC by targeting
+their current skills and tools. Once the VC is provisioned the
+administrator can deploy a custom software environment supporting
+their research group's unique needs. This is particularly valuable for
+groups with rapidly evolving software stacks from an emerging
+computational science field. Obviously such a model with integration
+into the queuing system has the advantage of better
+resource utilization in a resource starved environment but at the same
+time provides the necessary performance benefits that advances
+scientific applications need.
+
+The paper is structured as follows. Next we provide some important
+terminology that we use throughout the paper (Section
+\ref{S:terminology}) and a more in depth look at  the motivation
+(Section \ref{S:motivation}). We outline the architecture (Section
+\ref{S:architecture}) and report on our client interface (Section
+\ref{S:cloudmesh}). We present some preliminary results (Section
+\ref{S:results}) and conclude our paper (Section \ref{S:conclusion}).

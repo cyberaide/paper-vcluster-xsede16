@@ -1,1 +1,3 @@
-# paper-vcluster-xsede16
+# virtual-clusters-article
+
+Virtual clusters article for XSEDE'16

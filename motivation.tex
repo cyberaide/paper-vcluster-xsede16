@@ -1,0 +1,74 @@
+%!TEX root = virtual-clusters.tex
+
+\subsection{Motivation} \label{S:motivation}
+
+The reasons for creating the novel {\em Comet} virtual environment are
+to define an efficient system architecture for virtual HPC clusters,
+provide VC performance comparable to the underlying physical system,
+and to deliver an HPC platfrom to the VC users and administrators in a
+familiar fashion. VMs that are started on {\em Comet} are running on the same servers as regular
+HPC jobs and VMs consequently have access to the same high-performance
+hardware, including the InfiniBand interconnect via SR-IOV, local flash
+drives, significant amounts of RAM and multicore CPUs with vector
+instruction sets. Combined with the semantics and management
+features we emphasize through our client interfaces we deliver near bare-metal
+experience to the users and administrators of the VCs.  Hence the
+abstraction of a virtual cluster mimics that of a physical one.
+
+Two of the features that enable this bare-metal approach for
+management are the private management VLAN and installation from an
+ISO image. Each VC has its own VLAN, enabling the PXE-boot from a
+frontend server and full control of an associated local network.  Via
+this abstraction clusters can be management using existing tools
+mentioned earlier, in addition to Cobbler \cite{cobbler} which also handles
+bare-metal provisioning over a local network. Furthermore
+we can leverage other commercial cluster management software as well,
+like Bright Cluster Manager \cite{bright}.
+
+For installation and troubleshooting, a VM can be booted up from a
+regular ISO image uploaded to {\em Comet}'s
+image server and mounted on the desired server on request. Using an
+ISO is for many the easiest way to install a frontend of a cluster---a
+machine running 24/7 and providing access and management for other
+nodes. Users can also start a compute nodes using a regular ISO, or
+PXE-boot from the frontend if an appropriate cluster management tool
+has been set up. Hence compute nodes can be installed with minimum
+effort while providing access to the desired OS supported by the KVM
+hypervisor. There is no need to conduct complex manipulations of
+images or limit use to a handful of sanctioned images. Users can
+control the installation process by opening the {\em Comet} VM
+console in a browser with the cloudmesh client tool (see Section \ref{S:cloudmesh}).
+
+HPC admins have extensive experience working with bare-metal
+clusters and the existing tools. Switching to new paradigms could require significant
+resources in time, hardware and money spent to adopt such new
+approaches. This also includes finding or writing new tools to adapt to
+new system frameworks. {\em Comet}'s virtual environment makes running virtual
+clusters straightforward by leveraging existing expertise of the
+users. Using such well known tools will avoid the significant learning
+curve associated for example with OpenStack as obvious from
+\cite{ossurvey2016}.
+
+The disk image management on {\em Comet} is a unique feature that
+reduces the necessary storage and network infrastructure required
+while also providing VMs with fast local storage. In short, the KVM
+disk images for the VMs in a cluster are stored on a central server,
+but migrated to the container while the VM is running and flushed back
+when the VM is shut down. This lowers the effort needed for the
+centralized storage server and limits the network bandwidth utilized
+to transferring the image. This design also provides VMs with disk
+performance based on the SSDs within the physical compute nodes.
+
+In addition to production use of {\em Comet} VCs, the near bare-metal
+approach makes {\em Comet} them an excellent platform for 
+training. Groups can learn how to use tools that work on their real
+systems in a controlled VM environment. With our solutions, we
+demonstrate that VCs are 
+easy to set up, replicate, reinstall, and destroy. A new
+cluster can be booted up for a class and quickly torn down after its
+intended use \cite{caida}. Hence, we provide an efficient platform for
+trainees that need to get experience with software and services
+supported by access which is very close to the real
+hardware. Consequently, the huge benefit of our {\em Comet virtual
+  clusters} is the combination of near bare-metal and VM features
+while utilizing existing HPC batch systems.

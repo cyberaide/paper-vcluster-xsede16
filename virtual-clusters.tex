@@ -1,0 +1,270 @@
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+
+\documentclass{sig-alternate-05-2015}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{color,soul}
+
+%\begin{comment}
+\setlist[itemize]{noitemsep}
+\setlist[description]{noitemsep}
+%\end{comment}
+
+% outcomment in final version 
+\begin{comment}
+\makeatletter
+ \setcounter{page}{0}
+\setcounter{tocdepth}{3}
+\def\contentsname{Contents}
+\def\tableofcontents{%
+    \section*{\MakeUppercase{\contentsname}}%
+    \@starttoc{toc}%
+    }
+\makeatother
+\end{comment}
+
+\begin{document}
+
+\newcommand{\TITLE}{User Managed Virtual Clusters in Comet}
+
+% Copyright
+\CopyrightYear{2016} 
+\setcopyright{acmcopyright}
+\conferenceinfo{XSEDE16,}{July 17-21, 2016, , }
+\isbn{978-1-4503-4755-6/16/07}\acmPrice{\$15.00}
+\doi{http://dx.doi.org/10.1145/2949550.2949555}
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+
+
+% DOI
+%\doi{10.475/123_4}
+
+% ISBN
+%\isbn{123-4567-24-567/08/06}
+
+%Conference
+%\conferenceinfo{PLDI '13}{June 16--19, 2013, Seattle, WA, USA}
+
+%\acmPrice{\$15.00}
+
+%
+% --- Author Metadata here ---
+%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+\title{\TITLE}
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+
+\numberofauthors{2}
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+\alignauthor
+Rick Wagner, Philip Papadopoulos, Dmitry Mishin, Trevor Cooper, \\ 
+Mahidhar Tatineti\\
+       \affaddr{San Diego Supercomputer Center UCSD}\\
+       \affaddr{9500 Gilman Drive \#0505}\\
+       \affaddr{La Jolla, CA 92093-0505 USA}\\
+       \email{rpwagner@sdsc.edu, phil@sdsc.edu, dmishin@sdsc.edu, tcooper@sdsc.edu}
+\alignauthor
+Gregor von Laszewski, \\
+Fugang Wang, \\
+Geoffrey C. Fox \\
+       \affaddr{Indiana University}\\
+       \affaddr{919 E. 10th Street}\\
+       \affaddr{Bloomington, IN 47408}\\
+       \email{laszewski@gmail.com, kevinwangfg@gmail.com}
+}
+
+
+\begin{comment}
+\numberofauthors{7}
+\alignauthor
+Rick Wagner\\
+       \affaddr{San Diego Supercomputer Center UCSD}\\
+       \affaddr{9500 Gilman Drive \#0505}\\
+       \affaddr{La Jolla, CA 92093-0505 USA}\\
+       \email{rpwagner@sdsc.edu}
+\alignauthor
+Philip Papadopoulos\\
+       \affaddr{San Diego Supercomputer Center UCSD}\\
+       \affaddr{9500 Gilman Drive \#0505}\\
+       \affaddr{La Jolla, CA 92093-0505 USA}\\
+       \email{phil@sdsc.edu}
+\alignauthor
+Dmitry Mishin\\
+       \affaddr{San Diego Supercomputer Center UCSD}\\
+       \affaddr{9500 Gilman Drive \#0505}\\
+       \affaddr{La Jolla, CA 92093-0505 USA}\\
+       \email{dmishin@sdsc.edu}
+\and
+\alignauthor
+Trevor Cooper\\
+       \affaddr{San Diego Supercomputer Center UCSD}\\
+       \affaddr{9500 Gilman Drive \#0505}\\
+       \affaddr{La Jolla, CA 92093-0505 USA}\\
+       \email{tcooper@sdsc.edu}
+\alignauthor
+Mahidhar Tatineti\\
+       \affaddr{San Diego Supercomputer Center UCSD}\\
+       \affaddr{9500 Gilman Drive \#0505}\\
+       \affaddr{La Jolla, CA 92093-0505 USA}\\
+       \email{mahidhar@sdsc.edu}
+\alignauthor
+Gregor von Laszewski\\
+       \affaddr{Indiana University}\\
+       \affaddr{919 E. 10th Street}\\
+       \affaddr{Bloomington, IN 47408}\\
+       \email{laszewski@gmail.com}
+\and
+\alignauthor
+Fugang Wang\\
+       \affaddr{Indiana University}\\
+       \affaddr{919 E. 10th Street}\\
+       \affaddr{Bloomington, IN 47408}\\
+       \email{kevinwangfg@gmail.com}
+}
+\end{comment}
+
+\begin{comment}
+% out comment for final version
+\begin{center}
+{\Large \TITLE}
+\end{center}
+\tableofcontents
+
+\newpage
+\end{comment}
+
+\maketitle
+
+\input{abstract}
+
+%
+% The code below should be generated by the tool at
+% http://dl.acm.org/ccs.cfm
+% Please copy and paste the code instead of the example below. 
+%
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10010520.10010521.10010528</concept_id>
+<concept_desc>Computer systems organization~Parallel architectures</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10011007.10010940.10010941.10010942.10010948</concept_id>
+<concept_desc>Software and its engineering~Virtual machines</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Computer systems organization~Parallel architectures}
+\ccsdesc[500]{Software and its engineering~Virtual machines}
+
+%
+% End generated code
+%
+
+%
+%  Use this command to print the description
+%
+\printccsdesc
+
+% We no longer use \terms command
+%\terms{Theory}
+
+\keywords{Virtual machine; Supercomputer;}
+
+\newcommand{\Comet}{{\em Comet\/}}
+
+\input{introduction}
+
+\input{dictionary}
+
+\input{motivation}
+
+\input{architecture}
+
+\input{client}
+
+\input{results}
+
+\input{conclusion}
+
+\section{Acknowledgments}
+
+Comet is supported by NSF grant: ACI \#1341698 Gateways to Discovery:
+Cyberinfrastructure for the Long Tail of Science. 
+
+\bibliographystyle{abbrvurl}
+\bibliography{references}
+
+
+\end{document}
