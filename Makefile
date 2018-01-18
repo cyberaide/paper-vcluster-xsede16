@@ -5,6 +5,7 @@ all:
 	bibtex ${FILE}
 	pdflatex ${FILE}
 	pdflatex ${FILE}
+	cp ${FILE}.pdf vonLaszewski-vcluster-xsede16.pdf
 
 real-clean: clean
 	rm -rf *.pdf
